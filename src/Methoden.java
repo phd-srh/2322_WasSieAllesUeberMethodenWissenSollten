@@ -33,10 +33,27 @@ public class Methoden {
         x++;
     }
 
+    // Call-By-Reference (CbR)
+    // -> Übergebene Variable wird einem weiteren Namen zugeordnet, aber
+    //    es handelt sich um die selbe Variable (Speicherstelle)
+    //    jede Wertänderung dieser Variable hat Auswirkung auf den Aufrufer !!
+    //    CbR gilt für alle komplexen Datentypen (nicht primitive)
+    public static void ausgabe(int[] array) {
+        System.out.println("Ausgabe (int[]): " + array[0]);
+        array[0] += 10;
+    }
+
+    // Funktionen, die etwas berechnen
+
+
     public static void main(String[] args) {
         int x = 7;                              // x: lokale Variable
         ausgabe( x );
         System.out.println("Mein x ist " + x);
+
+        int[] integerFeld = { 1, 2, 3, 4, 5 };
+        ausgabe( integerFeld );
+        System.out.println("Wert an der Stelle 0: " + integerFeld[0]);
     }
 
 }
