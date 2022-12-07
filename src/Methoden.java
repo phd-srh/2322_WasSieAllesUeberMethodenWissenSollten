@@ -66,6 +66,17 @@ public class Methoden {
         return n * fakultät_rekursiv(n - 1);
     }
 
+
+    // globale Variable (alle Methoden können darauf zugreifen)
+    public static long methodenAufrufZähler;
+
+    // Berechne: fibo(n) = fibo(n-1) + fibo(n-2)
+    public static long fibonacci(long n) {
+        methodenAufrufZähler++;
+        if (n <= 1) return 1;
+        return fibonacci(n-1) + fibonacci(n-2);
+    }
+
     public static void main(String[] args) {
         int x = 7;                              // x: lokale Variable
         ausgabe( x );
@@ -82,6 +93,20 @@ public class Methoden {
         System.out.println("fakultät von 6: " + fakultät(6) );
         System.out.println("fakultät von 17: " + fakultät(17) );
         System.out.println("fakultät(rek) von 17: " + fakultät_rekursiv(17));
+
+        methodenAufrufZähler = 0;
+        long startTime = System.nanoTime();
+        System.out.println("fibo(6): " + fibonacci(6));
+        long diffTime = System.nanoTime() - startTime;
+        System.out.println("Anzahl fibo-Aufrufe: " + methodenAufrufZähler);
+        System.out.println("in " + diffTime + "ns");
+
+        methodenAufrufZähler = 0;
+        startTime = System.nanoTime();
+        System.out.println("fibo(50): " + fibonacci(50));
+        diffTime = System.nanoTime() - startTime;
+        System.out.println("Anzahl fibo-Aufrufe: " + methodenAufrufZähler);
+        System.out.println("in " + diffTime + "ns");
     }
 
 }
