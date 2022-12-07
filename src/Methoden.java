@@ -77,6 +77,11 @@ public class Methoden {
         return fibonacci(n-1) + fibonacci(n-2);
     }
 
+    public static long fibonacci_iterativ(long n) {
+        // TODO: bitte das hier ordentlich machen!
+        return 0;
+    }
+
     public static void main(String[] args) {
         int x = 7;                              // x: lokale Variable
         ausgabe( x );
