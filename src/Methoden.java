@@ -44,7 +44,27 @@ public class Methoden {
     }
 
     // Funktionen, die etwas berechnen
+    public static double berechnungQuadrat(double x) {
+        double ergebnis = x * x;
+        // gib das ergebnis als Rückgabewert der Methode zurück
+        System.out.println("Das Ergebnis ist " + ergebnis);
+        return ergebnis;
+    }
 
+    // Berechne: n*(n-1)*(n-2)* ... 1
+    public static long fakultät(long n) {
+        // Berechnung, wo man akkumulieren muss
+        long produkt = 1;
+        for (int zahl=1; zahl <= n; zahl++) {
+            produkt = produkt * zahl;
+        }
+        return produkt;
+    }
+
+    public static long fakultät_rekursiv(long n) {
+        if (n == 0) return 1;
+        return n * fakultät_rekursiv(n - 1);
+    }
 
     public static void main(String[] args) {
         int x = 7;                              // x: lokale Variable
@@ -54,6 +74,14 @@ public class Methoden {
         int[] integerFeld = { 1, 2, 3, 4, 5 };
         ausgabe( integerFeld );
         System.out.println("Wert an der Stelle 0: " + integerFeld[0]);
+
+        double wert = 17;
+        double berechneterWert = berechnungQuadrat(wert);
+        System.out.println("Als Ergebnis wurde berechnet: " + berechneterWert);
+
+        System.out.println("fakultät von 6: " + fakultät(6) );
+        System.out.println("fakultät von 17: " + fakultät(17) );
+        System.out.println("fakultät(rek) von 17: " + fakultät_rekursiv(17));
     }
 
 }
